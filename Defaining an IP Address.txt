@@ -1,0 +1,22 @@
+class Solution:
+    def defangIPaddr(self, address: str):
+        stack = []
+        stack[:0] = address
+        i = 0
+        while(i < len(stack)):
+            # i += 1
+        # for i in range(len(stack)):
+            if stack[i] == '.':
+                stack.insert(i, '[')
+                stack.insert(i + 2, ']')
+                i = i + 2
+            else:
+                i += 1
+                
+        print(stack)
+        fin = "".join([elm for elm in stack])
+        return fin
+    
+    
+    # More easy way -->     address.replace('.', '[.]')
+        

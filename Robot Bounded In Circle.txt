@@ -1,0 +1,22 @@
+class Solution:
+    def isRobotBounded(self, instructions: str) -> bool:
+        direction = 0
+        distance = {'N':0,'S':0,'E':0,'W':0}
+        
+        for x in instructions:
+            if x=='G':
+                if (direction<0 and direction%4==1) or (direction>0 and direction%4==3):
+                    distance['W']+=1
+                elif (direction<0 and direction%4==3) or (direction>0 and direction%4==1):
+                    distance['E']+=1
+                elif direction%4==2:
+                    distance['S']+=1
+                else:
+                    distance['N']+=1
+            if x=='L':
+                direction-=1
+            elif x=='R':
+                direction +=1
+        if direction%4!=0 or (distance['N']==distance['S'] and distance['E']==distance['W']):
+            return True
+        return False   

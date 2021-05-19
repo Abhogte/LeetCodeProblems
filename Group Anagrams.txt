@@ -1,0 +1,9 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        
+        lookup = defaultdict(list)
+        for words in strs:
+            key = "".join(sorted(words))
+            lookup[key].append(words)
+        
+        return[l for l in lookup.values()]

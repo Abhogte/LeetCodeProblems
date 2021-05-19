@@ -1,0 +1,35 @@
+class Solution:
+    def searchRange(self, nums: List[int], target: int):
+        return(self.findStarting(nums, target), self.findEnding(nums, target))
+    
+    def findStarting(self, nums, target):
+        index = -1
+        start = 0
+        end = len(nums) - 1
+        
+        while start <= end:
+            middle = int(start + (end - start) / 2)
+            if nums[middle] >= target:
+                end = middle - 1 
+            else:
+                start = middle + 1
+            
+            if nums[middle] == target: index = middle
+        
+        return index
+    
+    def findEnding(self, nums, target):
+        index = -1
+        start = 0
+        end = len(nums) - 1
+        while start<= end:
+            middle = int(start + (end - start) / 2)
+            if nums[middle] <= target:
+                start  = middle + 1
+            else:
+                end = middle - 1
+            
+            if nums[middle] == target: index = middle
+                
+        return index
+                

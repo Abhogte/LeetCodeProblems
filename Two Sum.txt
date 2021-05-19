@@ -1,0 +1,11 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        
+        dic_={}
+        
+        for x in range(0,len(nums)): 
+            complement = target-nums[x]
+            if complement in dic_:
+                return(x,dic_[complement])
+            else:
+                dic_[nums[x]]=x

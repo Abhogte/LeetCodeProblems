@@ -1,0 +1,6 @@
+class Solution:
+    def topKFrequent(self, words: List[str], k: int) -> List[str]:
+        words.sort()
+        total = Counter(words)
+        result = sorted(total, key = total.get, reverse = True)
+        return result[:k]

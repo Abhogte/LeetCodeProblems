@@ -1,0 +1,17 @@
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        """
+        :type s: str
+        :rtype: int
+        """
+        # build hash map : character and how often it appears
+        count = collections.Counter(s)
+        print(count)
+        # find the index
+        c = len(s)
+        for x in range(c):
+            
+            
+            if count[s[x]] == 1:
+                return x     
+        return -1

@@ -1,0 +1,11 @@
+class Solution:
+    def rotate(self, nums, k):   
+        i=1
+        last=len(nums)-1
+    
+        while i<=k:
+            temp=nums[last]
+            nums.pop(last)
+            nums.insert(0,temp)
+            i+=1
+        return nums
